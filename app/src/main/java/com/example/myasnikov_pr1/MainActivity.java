@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Context;
 import android.widget.Toast;
+import android.util.Log;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MyApp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, durationTime);
         toast.show();
+
+        //Log
+        Log.i(TAG, "Application create");
     }
     @Override
     protected void onStart() {
@@ -45,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, durationTime);
         toast.show();
+
+        //Log
+        Log.d(TAG, "Application stop");
     }
     @Override
     protected void onDestroy() {
@@ -57,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, durationTime);
         toast.show();
+
+        //Log
+        Log.d(TAG, "Application destroy");
     }
     @Override
     protected void onPause() {
@@ -69,6 +80,24 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, durationTime);
         toast.show();
+
+        //Log
+        Log.d(TAG, "Application pause");
+    }
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        //Toast
+        Context context = getApplicationContext();
+        int durationTime = Toast.LENGTH_SHORT;
+        CharSequence text = "Activity restart";
+
+        Toast toast = Toast.makeText(context, text, durationTime);
+        toast.show();
+
+        //Log
+        Log.d(TAG, "Application restart");
     }
     @Override
     protected void onResume() {
@@ -81,5 +110,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, durationTime);
         toast.show();
+
+        //Log
+        Log.d(TAG, "Application restart");
     }
 }
